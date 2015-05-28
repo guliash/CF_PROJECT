@@ -21,4 +21,8 @@ public class Functions {
         }
         return res;
     }
+
+    public static int addMod(int a, int b, int mod) {
+        return ((a + b) % mod + mod) % mod;
+    }
 }
