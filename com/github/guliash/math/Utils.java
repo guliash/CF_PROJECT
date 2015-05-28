@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by gulash on 18.05.15.
  */
-public class Functions {
+public class Utils {
     public static ArrayList<Integer> finDivisors(int a) {
         int iter = 1;
         ArrayList<Integer> res = new ArrayList<>();

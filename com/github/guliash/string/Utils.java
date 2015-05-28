@@ -1,4 +1,4 @@
-package com.github.guliash.string.utils;
+package com.github.guliash.string;
 
 import java.util.ArrayList;
 
