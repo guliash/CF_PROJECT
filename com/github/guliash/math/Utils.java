@@ -37,4 +37,29 @@ public class Utils {
     public static int addMod(int a, int b, int mod) {
         return ((a + b) % mod + mod) % mod;
     }
+
+    public static boolean nextPermutation(int[] a) {
+        int temp, mid, n;
+        n = a.length;
+        for(int i = n - 1; i > 0; i--) {
+            if(a[i] > a[i - 1]) {
+                for(int j = n - 1; j >= i; j--) {
+                    if(a[j] > a[i - 1]) {
+                        temp = a[i - 1];
+                        a[i - 1] = a[j];
+                        a[j] = temp;
+                        break;
+                    }
+                }
+                mid = i + (n - i) / 2;
+                for(int j = i, z = 0; j < mid; z++, j++) {
+                    temp = a[j];
+                    a[j] = a[n - z - 1];
+                    a[n - z - 1] = temp;
+                }
+                return true;
+            }
+        }
+        return false;
+    }
 }
