@@ -38,6 +38,22 @@ public class Utils {
         return ((a + b) % mod + mod) % mod;
     }
 
+    public static long addMod(long a, long b, long mod) {
+        return ((a + b) % mod + mod) % mod;
+    }
+
+    public static long binpow(long a, long pow, long mod) {
+        if(pow == 0) {
+            return 1;
+        }
+        long res = binpow(a, pow / 2, mod);
+        if(pow % 2 == 0) {
+            return (res * res) % mod;
+        } else {
+            return (((res * res) % mod) * a) % mod;
+        }
+    }
+
     public static boolean nextPermutation(int[] a) {
         int temp, mid, n;
         n = a.length;
