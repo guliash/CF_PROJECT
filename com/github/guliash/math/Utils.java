@@ -54,6 +54,10 @@ public class Utils {
         }
     }
 
+    public static long inv(long a, long mod) {
+        return binpow(a, mod - 2, mod);
+    }
+
     public static boolean nextPermutation(int[] a) {
         int temp, mid, n;
         n = a.length;
