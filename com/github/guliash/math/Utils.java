@@ -1,7 +1,6 @@
 package com.github.guliash.math;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by gulash on 18.05.15.
@@ -31,6 +30,9 @@ public class Utils {
                 cur /= i;
             }
         }
+        if(cur != 1) {
+            primes.add(cur);
+        }
         return primes;
     }
 
@@ -52,6 +54,20 @@ public class Utils {
         } else {
             return (((res * res) % mod) * a) % mod;
         }
+    }
+
+    public static long gcd(long a, long b) {
+        if(b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
+    }
+
+    public static int gcd(int a, int b) {
+        if(b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
     }
 
     public static long inv(long a, long mod) {
