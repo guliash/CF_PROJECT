@@ -3,6 +3,7 @@ package com.github.guliash.structures;
 import com.github.guliash.interfaces.ID;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 
 /**
@@ -17,6 +18,7 @@ public class PriorityQueueMax<T extends ID> {
 
     public PriorityQueueMax(int maxNumber, Comparator<T> cmp) {
         index2heapPos = new int[maxNumber];
+        Arrays.fill(index2heapPos, -1);
         this.cmp = cmp;
     }
 
@@ -77,8 +79,22 @@ public class PriorityQueueMax<T extends ID> {
     }
 
     public void delete(int pos) {
+        int c = cmp.compare(heap.get(pos), heap.get(size - 1));
         swap(pos, --size);
-        heapifyDown(pos);
+        index2heapPos[heap.get(size).getID()] = -1;
+        if(c < 0) {
+            heapifyUp(pos);
+        } else {
+            heapifyDown(pos);
+        }
+    }
+
+    public boolean contains(T obj) {
+        return contains(obj.getID());
+    }
+
+    public boolean contains(int id) {
+        return index2heapPos[id] != -1;
     }
 
     public T max() {
