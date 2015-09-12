@@ -13,4 +13,8 @@ public class PairInt {
     public String toString() {
         return x + " " + y;
     }
+
+    public PairInt clone() {
+        return new PairInt(x, y);
+    }
 }
