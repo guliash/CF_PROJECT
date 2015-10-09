@@ -5,7 +5,7 @@ package com.github.guliash.math.geom;
  */
 public class GeomUtils {
 
-    public static final double eps = 1e-15;
+    public static final double eps = 1e-14;
 
     public static double dist(Point p1, Point p2) {
         return Math.sqrt(dist2(p1, p2));
