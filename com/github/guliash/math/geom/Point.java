@@ -18,4 +18,8 @@ public class Point {
         Point p = (Point)obj;
         return Math.abs(this.x - p.x) <= GeomUtils.eps && Math.abs(this.y - p.y) <= GeomUtils.eps;
     }
+
+    public Point clone() {
+        return new Point(x, y);
+    }
 }
