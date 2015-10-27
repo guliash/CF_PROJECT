@@ -1,5 +1,7 @@
 package com.github.guliash.io;
 
+import java.io.PrintWriter;
+
 /**
  * Created by gulash on 18.05.15.
  */
@@ -23,6 +25,15 @@ public class Helper {
             for(int j = 0; j < arrays.length; j++) {
                 arrays[j][i] = in.ni();
             }
+        }
+    }
+
+    public static void printTable(PrintWriter out, int[][] a) {
+        for(int[] u : a) {
+            for(int v : u) {
+                out.print(v + " ");
+            }
+            out.println();
         }
     }
 }
