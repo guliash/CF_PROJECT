@@ -6,9 +6,32 @@ import java.util.ArrayList;
  * Created by gulash on 18.05.15.
  */
 public class Utils {
+
+    public static final int[][] ADJ_CELLS = {{0, -1}, {-1, 0}, {0, 1}, {1, 0}};
+    public static final int[][] NEIGHBOURS = {{0, -1}, {-1, -1}, {-1, 0}, {-1, 1}, {0, 1}, {1, 1}, {1, 0}, {1, -1}};
+
+    public static boolean checkBorders(int x, int y, int n, int m) {
+        return x >= 0 && x < n && y >= 0 && y < m;
+    }
+
     public static ArrayList<Integer> finDivisors(int a) {
         int iter = 1;
         ArrayList<Integer> res = new ArrayList<>();
+        for(; iter * iter < a; iter++) {
+            if(a % iter == 0) {
+                res.add(iter);
+                res.add(a / iter);
+            }
+        }
+        if(iter * iter == a) {
+            res.add(iter);
+        }
+        return res;
+    }
+
+    public static ArrayList<Long> findDivisors(long a) {
+        long iter = 1;
+        ArrayList<Long> res = new ArrayList<>();
         for(; iter * iter < a; iter++) {
             if(a % iter == 0) {
                 res.add(iter);
@@ -34,6 +57,34 @@ public class Utils {
             primes.add(cur);
         }
         return primes;
+    }
+
+    public static ArrayList<Long> factorize(long a) {
+        long cur = a;
+        ArrayList<Long> primes = new ArrayList<>();
+        for(long i = 2; i * i <= a; i++) {
+            while(cur % i == 0) {
+                primes.add(i);
+                cur /= i;
+            }
+        }
+        if(cur != 1) {
+            primes.add(cur);
+        }
+        return primes;
+    }
+
+
+    public static boolean isPrime(long a) {
+        if(a <= 1) {
+            return false;
+        }
+        for(long i = 2; i * i <= a; i++) {
+            if(a % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static int addMod(int a, int b, int mod) {
@@ -97,5 +148,13 @@ public class Utils {
             }
         }
         return false;
+    }
+
+    public static long divAndCeil(long a, long b) {
+        if(a % b == 0) {
+            return a / b;
+        } else {
+            return a / b + 1;
+        }
     }
 }
