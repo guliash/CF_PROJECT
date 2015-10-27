@@ -45,4 +45,23 @@ public class Utils {
         return res;
     }
 
+    public static int[] z(String p) {
+        int n = p.length();
+        int[] res = new int[n];
+        int l, r;
+        l = 0; r = 0;
+        for(int i = 1; i < n; i++) {
+            if(i <= r) {
+                res[i] = Math.min(res[i - l], r - i + 1);
+            }
+            while(i + res[i] < n && p.charAt(res[i]) == p.charAt(i + res[i])) {
+                ++res[i];
+            }
+            if(i + res[i] - 1 > r) {
+                l = i; r = i + res[i] - 1;
+            }
+        }
+        return res;
+    }
+
 }
