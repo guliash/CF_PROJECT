@@ -10,6 +10,12 @@ public class PairInt {
         this.y = y;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        PairInt pairInt = (PairInt)obj;
+        return pairInt.x == x && pairInt.y == y;
+    }
+
     public String toString() {
         return x + " " + y;
     }

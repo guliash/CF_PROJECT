@@ -16,5 +16,4 @@ public class Line {
         return this.a + " " + this.b + " " + this.c;
     }
 
-
 }
